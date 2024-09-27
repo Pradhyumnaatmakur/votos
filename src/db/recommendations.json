@@ -1,0 +1,106 @@
+{
+  "korean-movies": {
+    "high-and-dry-2000": [
+      {
+        "title": "No Man's Land",
+        "year": 2018,
+        "type": "Korean Movie",
+        "imageUrl": "https://i.mydramalist.com/rl6L2_4f.jpg",
+        "genres": [
+          "Music",
+          "Mystery",
+          "Horror",
+          "Comedy"
+        ],
+        "duration": "1 hr. 5 min.",
+        "releaseDate": "N/A",
+        "WatchOn": "N/A",
+        "category": "korean-movies"
+      },
+      {
+        "title": "Kamnan Eed",
+        "year": 2009,
+        "type": "Thai Drama",
+        "imageUrl": "https://i.mydramalist.com/qYoJAD_4f.jpg",
+        "genres": [
+          "Comedy",
+          "Romance",
+          "Sitcom"
+        ],
+        "episodes": "12",
+        "duration": "N/A",
+        "releaseDate": "Jun 27, 2009",
+        "WatchOn": "N/A",
+        "category": "thai-dramas"
+      },
+      {
+        "title": "Romance at a Cruel Angle",
+        "year": 2012,
+        "type": "Korean Movie",
+        "imageUrl": "https://i.mydramalist.com/dDyDg_4f.jpg",
+        "genres": [
+          "Mystery",
+          "Romance",
+          "Melodrama"
+        ],
+        "duration": "1 hr. 8 min.",
+        "releaseDate": "N/A",
+        "WatchOn": "N/A",
+        "category": "korean-movies"
+      },
+      {
+        "title": "Man's Man's World",
+        "year": 2000,
+        "type": "Japanese Movie",
+        "imageUrl": "https://i.mydramalist.com/1wlxn6_4f.jpg",
+        "genres": [
+          "Drama"
+        ],
+        "duration": "1 hr. 5 min.",
+        "releaseDate": "N/A",
+        "WatchOn": "N/A",
+        "category": "japanese-movies"
+      }
+    ]
+  },
+  "korean-dramas": {
+    "the-choice-2015": [
+      {
+        "title": "No Man's Land",
+        "year": 2018,
+        "type": "Korean Movie",
+        "imageUrl": "https://i.mydramalist.com/rl6L2_4f.jpg",
+        "genres": [
+          "Music",
+          "Mystery",
+          "Horror",
+          "Comedy"
+        ],
+        "duration": "1 hr. 5 min.",
+        "releaseDate": "N/A",
+        "WatchOn": "N/A",
+        "category": "korean-movies"
+      }
+    ]
+  },
+  "thai-dramas": {
+    "heha-cafe-2002": [
+      {
+        "title": "No Man's Land",
+        "year": 2018,
+        "type": "Korean Movie",
+        "imageUrl": "https://i.mydramalist.com/rl6L2_4f.jpg",
+        "genres": [
+          "Music",
+          "Mystery",
+          "Horror",
+          "Comedy"
+        ],
+        "duration": "1 hr. 5 min.",
+        "releaseDate": "N/A",
+        "WatchOn": "N/A",
+        "category": "korean-movies"
+      }
+    ]
+  }
+}
