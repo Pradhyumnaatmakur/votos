@@ -1,8 +1,21 @@
-# React + Vite
+# VOTOOS - Your Movie and TV Show Recommendation Hub
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+VOTOOS is a website where you can discover, recommend, and discuss movies and TV shows. It's built to be fast and easy to use.
 
-Currently, two official plugins are available:
+## Main Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **User Recommendations**: Find and share great movies and TV shows.
+- **Fast Performance**: Quick loading times thanks to Vite and JSON data.
+- **Detailed Content Pages**: Get info on any movie or TV show.
+- **Genre Browsing**: Explore titles by genre.
+- **Comments**: Discuss your favorite (or least favorite) content.
+- **Mobile Friendly**: Use on any device.
+- **Search**: Quickly find specific titles.
+
+## Built With
+
+- React.js
+- Vite
+- JSON for data storage
+- Custom APIs
+- Tailwind CSS
