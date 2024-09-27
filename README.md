@@ -19,7 +19,3 @@ VOTOOS is a website where you can discover, recommend, and discuss movies and TV
 - JSON for data storage
 - Custom APIs
 - Tailwind CSS
-
-## Getting Started
-
-1. Clone the project:
