@@ -49,8 +49,14 @@ app.get("/api/recommendations/:category/:title", async (req, res) => {
   const filePath = path.join(__dirname, "db", "recommendations.json");
 
   try {
-    const fileContent = await fs.readFile(filePath, "utf-8");
-    const recommendations = JSON.parse(fileContent);
+    let recommendations = {};
+    try {
+      const fileContent = await fs.readFile(filePath, "utf-8");
+      recommendations = JSON.parse(fileContent);
+    } catch (error) {
+      console.log("No existing recommendations file, creating a new one");
+    }
+
     const titleRecommendations = recommendations[category]?.[title] || [];
     res.json(titleRecommendations);
   } catch (error) {
@@ -90,10 +96,33 @@ app.post("/api/recommendations/:category/:title", async (req, res) => {
     await fs.writeFile(filePath, JSON.stringify(recommendations, null, 2));
     res.status(201).json(recommendation);
   } catch (error) {
-    console.error("Error writing recommendations:", error);
+    console.error("Error writing recommendation:", error);
     res
       .status(500)
       .json({ message: "Failed to add recommendation", error: error.message });
+  }
+});
+
+app.get("/api/comments/:category/:title", async (req, res) => {
+  const { category, title } = req.params;
+  const filePath = path.join(__dirname, "db", "comments.json");
+
+  try {
+    let comments = {};
+    try {
+      const fileContent = await fs.readFile(filePath, "utf-8");
+      comments = JSON.parse(fileContent);
+    } catch (error) {
+      console.log("No existing comments file, creating a new one");
+    }
+
+    const titleComments = comments[category]?.[title] || [];
+    res.json(titleComments);
+  } catch (error) {
+    console.error("Error reading comments:", error);
+    res
+      .status(500)
+      .json({ message: "Failed to get comments", error: error.message });
   }
 });
 
