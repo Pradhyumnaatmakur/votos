@@ -1,5 +1,3 @@
-// src/utils/utils.js
-
 export function generateSlug(item) {
   return (
     item.title
