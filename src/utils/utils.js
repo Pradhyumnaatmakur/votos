@@ -76,27 +76,3 @@ export async function getRecommendations(category, title) {
     return [];
   }
 }
-
-export async function getComments(category, title) {
-  try {
-    const response = await fetch(
-      `/api/comments/${encodeURIComponent(category)}/${encodeURIComponent(
-        title
-      )}`
-    );
-    return await handleApiResponse(response, "Failed to fetch comments");
-  } catch (error) {
-    console.error("Error fetching comments:", error);
-    return [];
-  }
-}
-
-export async function searchContent(query) {
-  try {
-    const response = await fetch(`/api/search?q=${encodeURIComponent(query)}`);
-    return await handleApiResponse(response, "Failed to fetch search results");
-  } catch (error) {
-    console.error("Error searching content:", error);
-    return [];
-  }
-}
