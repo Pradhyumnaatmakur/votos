@@ -1,7 +1,5 @@
 // src/utils/utils.js
 
-import { loadData } from "./dataLoader";
-
 export function generateSlug(item) {
   return (
     item.title
@@ -24,20 +22,40 @@ export function isMoveOrDrama(category) {
   return category.endsWith("-movies") ? "movie" : "drama";
 }
 
+async function handleApiResponse(response, errorMessage) {
+  if (!response.ok) {
+    const errorText = await response.text();
+    console.error(
+      `${errorMessage} Status: ${response.status}, Response: ${errorText}`
+    );
+    throw new Error(`${errorMessage} Status: ${response.status}`);
+  }
+  const contentType = response.headers.get("content-type");
+  if (contentType && contentType.includes("application/json")) {
+    return response.json();
+  } else {
+    const text = await response.text();
+    console.error(`Unexpected response format. Expected JSON, got: ${text}`);
+    throw new Error("Unexpected response format");
+  }
+}
+
 export async function addRecommendation(category, title, recommendation) {
   try {
-    const response = await fetch(`/api/recommendations/${category}/${title}`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(recommendation),
-    });
+    const response = await fetch(
+      `/api/recommendations/${encodeURIComponent(
+        category
+      )}/${encodeURIComponent(title)}`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(recommendation),
+      }
+    );
 
-    if (!response.ok) {
-      throw new Error("Failed to add recommendation");
-    }
-
+    await handleApiResponse(response, "Failed to add recommendation");
     return true;
   } catch (error) {
     console.error("Error adding recommendation:", error);
@@ -47,13 +65,28 @@ export async function addRecommendation(category, title, recommendation) {
 
 export async function getRecommendations(category, title) {
   try {
-    const response = await fetch(`/api/recommendations/${category}/${title}`);
-    if (!response.ok) {
-      throw new Error("Failed to fetch recommendations");
-    }
-    return await response.json();
+    const response = await fetch(
+      `/api/recommendations/${encodeURIComponent(
+        category
+      )}/${encodeURIComponent(title)}`
+    );
+    return await handleApiResponse(response, "Failed to fetch recommendations");
   } catch (error) {
     console.error("Error fetching recommendations:", error);
+    return [];
+  }
+}
+
+export async function getComments(category, title) {
+  try {
+    const response = await fetch(
+      `/api/comments/${encodeURIComponent(category)}/${encodeURIComponent(
+        title
+      )}`
+    );
+    return await handleApiResponse(response, "Failed to fetch comments");
+  } catch (error) {
+    console.error("Error fetching comments:", error);
     return [];
   }
 }
@@ -61,10 +94,7 @@ export async function getRecommendations(category, title) {
 export async function searchContent(query) {
   try {
     const response = await fetch(`/api/search?q=${encodeURIComponent(query)}`);
-    if (!response.ok) {
-      throw new Error("Failed to fetch search results");
-    }
-    return await response.json();
+    return await handleApiResponse(response, "Failed to fetch search results");
   } catch (error) {
     console.error("Error searching content:", error);
     return [];

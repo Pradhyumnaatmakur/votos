@@ -6,8 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "lint": "eslint .",
-    "preview": "vite preview"
+    "serve": "node server.js",
+    "start": "npm run build && npm run serve"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.6.0",
@@ -16,8 +16,10 @@
     "@fortawesome/react-fontawesome": "^0.2.2",
     "axios": "^1.7.7",
     "cors": "^2.8.5",
-    "express": "^4.19.2",
+    "express": "^4.21.0",
+    "fs": "^0.0.1-security",
     "lodash": "^4.17.21",
+    "path": "^0.12.7",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-helmet": "^6.1.0",
